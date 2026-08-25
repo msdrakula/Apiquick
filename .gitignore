@@ -1,0 +1,38 @@
+# Dependencies
+**/node_modules/
+
+# Build outputs
+frontend/dist/
+backend/dist/
+
+# Database
+data/*.db
+data/*.db-*
+data/apiquick.db
+
+# Bundled runtimes / packaging (do not publish)
+dist-package/
+nodejs/node.exe
+nodejs/node_modules/
+desktop/electron-dist/
+
+# Local shortcuts and screenshots
+*.lnk
+/*.png
+
+# Personal / work Postman dumps (keep on disk, not on GitHub)
+Коллекции Postman/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Electron portable
+electron-portable/

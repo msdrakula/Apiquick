@@ -1,0 +1,31 @@
+{
+  "name": "apiquick-desktop",
+  "version": "1.0.0",
+  "description": "Apiquick Desktop App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.apiquick.app",
+    "productName": "Apiquick",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "../backend/dist/**/*",
+      "../frontend/dist/**/*",
+      "../data/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
