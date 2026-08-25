@@ -12,22 +12,16 @@ This is **not** MIT/GPL. See [`LICENSE`](LICENSE).
 
 ## Run (Windows)
 
-From the project root, after installing dependencies:
+Unzip the repo (or clone), then double-click **`Apiquick Desktop.bat`**. It starts `nodejs\node.exe` and opens Chrome/Edge at `http://127.0.0.1:8765`.
 
-```text
-nodejs\node.exe backend\dist\index.js
-```
+The archive includes Node, backend `node_modules`, and built `backend/dist` + `frontend/dist`. It does **not** include `dist-package` (third-party app files) or your personal folder `Коллекции Postman`.
 
-Or use `Apiquick Desktop.bat` if you have a local Node binary in `nodejs\`.
-
-Dev:
+Dev (needs `frontend/node_modules`):
 
 ```text
 backend: npm run dev
 frontend: npm run dev
 ```
-
-API listens on `http://127.0.0.1:8765`.
 
 ## Layout
 

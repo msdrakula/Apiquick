@@ -1,6 +1,18 @@
 @echo off
-cd /d "C:\Users\Luci\Desktop\Apiquick"
-start "" nodejs\node.exe backend\dist\index.js
+cd /d "%~dp0"
+
+if not exist "nodejs\node.exe" (
+  echo Missing nodejs\node.exe
+  pause
+  exit /b 1
+)
+if not exist "backend\dist\index.js" (
+  echo Missing backend\dist\index.js
+  pause
+  exit /b 1
+)
+
+start "" "%~dp0nodejs\node.exe" "%~dp0backend\dist\index.js"
 timeout /t 2 >nul
 
 if exist "C:\Program Files\Google\Chrome\Application\chrome.exe" (

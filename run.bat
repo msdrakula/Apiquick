@@ -1,3 +1,3 @@
 @echo off
-cd /d "C:\Users\Luci\Desktop\Apiquick"
+cd /d "%~dp0"
 nodejs\node.exe backend\dist\index.js

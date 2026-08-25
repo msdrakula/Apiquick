@@ -1,38 +1,28 @@
-# Dependencies
-**/node_modules/
+# Not needed to run a built copy
+frontend/node_modules/
+desktop/node_modules/
 
-# Build outputs
-frontend/dist/
-backend/dist/
+# Third-party full app dump (do not publish)
+dist-package/
+
+# Other products' marks
+Bruno.png
+Postman.png
+
+# Personal / work Postman dumps (stay on your disk only)
+Коллекции Postman/
 
 # Database
 data/*.db
 data/*.db-*
-data/apiquick.db
 
-# Bundled runtimes / packaging (do not publish)
-dist-package/
-nodejs/node.exe
-nodejs/node_modules/
-desktop/electron-dist/
-
-# Local shortcuts and screenshots
+# Local shortcuts (absolute paths)
 *.lnk
-/*.png
 
-# Personal / work Postman dumps (keep on disk, not on GitHub)
-Коллекции Postman/
-
-# Logs
+# Logs / OS / IDE
 *.log
-
-# OS files
 .DS_Store
 Thumbs.db
-
-# IDE
 .vscode/
 .idea/
-
-# Electron portable
 electron-portable/
