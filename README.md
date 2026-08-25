@@ -6,7 +6,7 @@ Local API client (HTTP / collections / environments) built with Node.js, React, 
 
 This is **not** MIT/GPL. See [`LICENSE`](LICENSE).
 
-- **Natural persons / personal use:** free, for **software testing and development**.
+- **Natural persons / personal use:** free to download, install, and run as-is for **software testing and development**. No right to modify the code or build another product on it.
 - **Legal entities** (companies, orgs, use on behalf of a business): **written permission required**.
 - **No warranty.** If you use the software for anything other than testing and developing software, you do it **at your own risk**; the author is not liable.
 

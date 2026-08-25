@@ -1,5 +1,5 @@
 APIQUICK PERSONAL USE LICENSE
-Version 1.0 — 2026
+Version 1.1 — 2026
 
 Copyright (c) 2026 the copyright holder of Apiquick
 (“Licensor”).
@@ -14,7 +14,7 @@ RUSSIAN (controlling text / приоритетный текст)
 1. Определения
 
   «Программа» — исходный код, сборки, документация и иные материалы
-  Apiquick в этом репозитории и в производных копиях.
+  Apiquick в этом репозитории.
 
   «Физическое лицо» — человек, действующий от своего имени, не от имени
   юридического лица, индивидуального предпринимателя, органа власти
@@ -28,14 +28,24 @@ RUSSIAN (controlling text / приоритетный текст)
   разработка программного обеспечения (включая отладку API, написание
   и проверку запросов, локальную работу с коллекциями).
 
+  «Производное произведение» — любая переработка, форк, порт,
+  переписывание, компиляция с изменениями, встраивание кода Программы
+  в другой продукт, а также программа или сервис, созданные на базе
+  Программы, её исходного кода, архитектуры или существенной части.
+
 2. Безвозмездная лицензия для физических лиц
 
   Физическому лицу безвозмездно предоставляется неисключительное,
   непередаваемое, отзывное право на территории всего мира:
 
-  (a) скачивать, устанавливать и запускать Программу для личных целей;
-  (b) изучать и изменять Программу для личных Разрешённых целей;
-  (c) делать копии исключительно для личного резервного копирования.
+  (a) скачивать, устанавливать и запускать Программу «как есть»
+      для личных Разрешённых целей;
+  (b) делать копии исключительно для личного резервного копирования,
+      без изменения файлов Программы.
+
+  Право изменять Программу, создавать Производные произведения
+  и использовать Программу или её код как основу своей программы
+  этой лицензией не предоставляется.
 
   Личные цели означают использование не в коммерческих интересах
   организации и не для оказания услуг третьим лицам на возмездной
@@ -44,10 +54,10 @@ RUSSIAN (controlling text / приоритетный текст)
 3. Юридические лица — только с разрешения
 
   Юридическому лицу запрещено копировать, устанавливать, запускать,
-  изучать, изменять, распространять или иным образом использовать
-  Программу, пока Лицензиар не выдаст письменное разрешение
-  (договор, письмо, лицензионный ключ или иной явно выраженный
-  документ Лицензиара).
+  изучать в целях разработки, изменять, распространять или иным
+  образом использовать Программу, пока Лицензиар не выдаст письменное
+  разрешение (договор, письмо, лицензионный ключ или иной явно
+  выраженный документ Лицензиара).
 
   Запрос разрешения: укажите организацию, цели использования и
   контакт в issue или иным способом, указанным Лицензиаром.
@@ -56,12 +66,22 @@ RUSSIAN (controlling text / приоритетный текст)
 
   Запрещается:
 
-  (a) сублицензировать, продавать, сдавать в аренду или предоставлять
+  (a) изменять, адаптировать, декомпилировать Программу (кроме случаев,
+      когда императивная норма закона прямо разрешает это в узких
+      пределах и такие пределы нельзя сузить договором);
+  (b) создавать Производные произведения, форки и «свои» клиенты,
+      сервисы или продукты на базе Программы или её исходного кода;
+  (c) копировать существенную часть исходного кода Программы в другой
+      проект;
+  (d) сублицензировать, продавать, сдавать в аренду или предоставлять
       Программу как услугу (SaaS) третьим лицам;
-  (b) удалять уведомления об авторском праве и этой лицензии;
-  (c) утверждать, что Программа одобрена, сертифицирована или
+  (e) удалять уведомления об авторском праве и этой лицензии;
+  (f) утверждать, что Программа одобрена, сертифицирована или
       предназначена для применения вне Разрешённых целей;
-  (d) использовать товарные знаки Лицензиара без отдельного согласия.
+  (g) использовать товарные знаки Лицензиара без отдельного согласия.
+
+  Публикация исходного кода в репозитории не означает разрешение
+  на переработку и не делает Программу открытым ПО.
 
 5. Отказ от гарантий и ответственности
 
@@ -105,50 +125,99 @@ RUSSIAN (controlling text / приоритетный текст)
   При расхождении перевода приоритет имеет русский текст.
 
 ----------------------------------------------------------------------
-ENGLISH (convenience translation)
+ENGLISH
 ----------------------------------------------------------------------
 
 1. Definitions
 
-  “Software” means the Apiquick source, binaries, docs, and copies.
+  “Software” means the Apiquick source code, binaries, documentation,
+  and other materials in this repository.
+
   “Natural person” means an individual acting in a personal capacity,
-  not for an organization.
-  “Legal entity” includes companies, sole traders acting in a business
-  capacity, public bodies, and anyone using the Software for an
-  organization.
-  “Permitted purposes” means software testing and software development.
+  not on behalf of an organization.
+
+  “Legal entity” includes a company, a sole trader acting in a business
+  capacity, a public body, and anyone using the Software for, or at the
+  expense of, an organization.
+
+  “Permitted purposes” means software testing and software development
+  (including API debugging, writing and checking requests, and local
+  work with collections).
+
+  “Derivative work” means any modification, fork, port, rewrite,
+  patched build, embedding of the Software’s code in another product,
+  and any program or service based on the Software, its source code,
+  architecture, or a substantial part of it.
 
 2. Royalty-free license for natural persons
 
   A natural person is granted a worldwide, non-exclusive,
-  non-transferable, revocable, royalty-free right to download, install,
-  run, study, and modify the Software for personal Permitted purposes,
-  and to make personal backups. Personal use is not use for an
-  organization’s commercial benefit or as a paid service to others.
+  non-transferable, revocable, royalty-free right to:
+
+  (a) download, install, and run the Software as provided, for personal
+      Permitted purposes;
+  (b) make copies solely for personal backup, without changing the
+      Software’s files.
+
+  This license does not grant any right to modify the Software, create
+  Derivative works, or use the Software or its code as the basis of
+  another program.
+
+  Personal use means use that is not for an organization’s commercial
+  benefit and not as a paid or other business service to third parties.
 
 3. Legal entities — permission required
 
-  A legal entity may not copy, install, run, study, modify, distribute,
-  or otherwise use the Software unless the Licensor gives prior written
-  permission.
+  A legal entity may not copy, install, run, study for development,
+  modify, distribute, or otherwise use the Software unless the Licensor
+  gives prior written permission (a contract, letter, license key, or
+  other express written instrument of the Licensor).
+
+  To request permission, state the organization, intended use, and a
+  contact, in an issue or as the Licensor otherwise directs.
 
 4. Restrictions (unless agreed in writing)
 
-  No sublicensing, sale, rental, or offering the Software as a service;
-  no removal of copyright/license notices; no claim that the Software
-  is approved for use outside Permitted purposes; no use of Licensor
-  trademarks without consent.
+  You may not:
+
+  (a) modify, adapt, or decompile the Software (except to the limited
+      extent a mandatory rule of law cannot be waived);
+  (b) create Derivative works, forks, or your own clients, services, or
+      products based on the Software or its source code;
+  (c) copy a substantial part of the Software’s source into another
+      project;
+  (d) sublicense, sell, rent, or offer the Software as a service (SaaS)
+      to third parties;
+  (e) remove copyright or license notices;
+  (f) claim that the Software is approved, certified, or intended for
+      use outside Permitted purposes;
+  (g) use the Licensor’s trademarks without separate consent.
+
+  Publication of source code in a repository is not permission to
+  create derivatives and does not make the Software open source.
 
 5. Disclaimer
 
-  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND.
-  THE LICENSOR IS NOT LIABLE FOR ANY DAMAGES ARISING FROM USE OR
-  INABILITY TO USE THE SOFTWARE.
+  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+  NON-INFRINGEMENT.
+
+  THE LICENSOR IS NOT LIABLE FOR ANY DAMAGE, LOSS, DATA LOSS, OUTAGE,
+  THIRD-PARTY CLAIM, OR OTHER CONSEQUENCE ARISING FROM USE OR INABILITY
+  TO USE THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY.
 
   THE SOFTWARE IS INTENDED ONLY FOR PERMITTED PURPOSES (software
   testing and software development). IF YOU USE IT FOR ANY OTHER
-  PURPOSE, YOU DO SO ENTIRELY AT YOUR OWN RISK. THE LICENSOR ACCEPTS
-  NO LIABILITY FOR SUCH USE AND DOES NOT WARRANT FITNESS FOR IT.
+  PURPOSE — INCLUDING PRODUCTION, REAL PERSONAL DATA, FINANCIAL
+  TRANSACTIONS, CRITICAL INFRASTRUCTURE, SAFETY, MEDICINE, OR PUBLIC
+  OR COMMERCIAL SERVICES — YOU DO SO ENTIRELY AT YOUR OWN RISK. THE
+  LICENSOR ACCEPTS NO LIABILITY FOR SUCH USE AND DOES NOT WARRANT
+  FITNESS FOR IT.
+
+  Where liability cannot be fully excluded, it is limited to the amount
+  you actually paid the Licensor for the Software, or zero if no fee
+  was paid.
 
 6. Termination
 
@@ -156,5 +225,8 @@ ENGLISH (convenience translation)
 
 7. Other
 
-  If a provision is unenforceable, the rest remains in force.
+  If a provision is unenforceable, the rest remains in force. This
+  license does not create a partnership and does not transfer
+  intellectual-property rights except as expressly granted here.
+
   If translations conflict, the Russian text controls.
