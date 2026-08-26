@@ -87,7 +87,18 @@ taskkill /IM node.exe /F
 
 Import → выбрать файл. Рабочие коллекции из `Коллекции Postman\` в git **не** кладутся.
 
-#### 7. Режим разработки (не нужен для обычной работы)
+#### 7. Кнопка Git в программе
+
+Это **не** вход в GitHub и **не** публикация Apiquick. Кнопка **Git** в шапке сохраняет **ваши коллекции** в отдельную папку на диске и делает локальный коммит.
+
+1. Укажите **абсолютный путь** к существующей папке → **Set**.
+2. **Init repo** — `git init` в этой папке (нужен `git` в PATH, например Git for Windows).
+3. **Sync collections** — пишет `collections\{имя}.postman_collection.json` и `environments\{имя}.json`. У секретных переменных окружения значения **не записываются**.
+4. **Commit** — локальный `git commit` с вашим сообщением.
+
+**Двухфакторная аутентификация GitHub сюда не относится:** Apiquick на сервер не логинится и `git push` не делает. Живая копия коллекций по-прежнему в `data\`. Чтобы выложить папку на GitHub, после коммита сами сделайте `git remote` / `git push` (HTTPS + token, SSH-ключ или GitHub Desktop) — 2FA спрашивается там, не в Apiquick.
+
+#### 8. Режим разработки (не нужен для обычной работы)
 
 Нужны зависимости фронтенда (`frontend\node_modules`). Их нет в ZIP «для запуска». На машине с npm:
 
@@ -187,7 +198,18 @@ Starter collections (include in the next GitHub release; Import in Apiquick):
 
 Import → pick the file. Personal dumps under `Коллекции Postman\` stay off git.
 
-#### 7. Development (not needed for normal use)
+#### 7. The Git button in the app
+
+This is **not** GitHub login and **not** publishing Apiquick. The **Git** button in the header writes **your collections** to a folder on disk and makes a local commit.
+
+1. Enter an **absolute path** to an existing folder → **Set**.
+2. **Init repo** — `git init` in that folder (`git` must be on PATH, e.g. Git for Windows).
+3. **Sync collections** — writes `collections\{name}.postman_collection.json` and `environments\{name}.json`. Secret environment values are **not** written.
+4. **Commit** — local `git commit` with your message.
+
+**GitHub two-factor authentication does not apply here:** Apiquick does not log in to a remote and does not `git push`. The live copy of collections stays in `data\`. To publish that folder to GitHub, run `git remote` / `git push` yourself (HTTPS + token, SSH key, or GitHub Desktop). 2FA is handled there, not inside Apiquick.
+
+#### 8. Development (not needed for normal use)
 
 Needs `frontend\node_modules`, which is **not** in the run-ready ZIP. With npm:
 
@@ -227,3 +249,4 @@ The ZIP does **not** include `dist-package` (third-party app files) or the perso
 | `desktop/` | Electron shell (optional) |
 | `nodejs/` | Bundled Node.js for Windows |
 | `data/` | Local database (created at runtime, not in git) |
+| `examples/collections/` | Starter Postman JSON (Testing Challenges, Apiquick self-test) |
