@@ -80,6 +80,13 @@ taskkill /IM node.exe /F
 
 Коллекции и история пишутся в локальную базу в папке `data\` (файл создаётся при первом запуске). Эта база **не** входит в git. Бэкап = скопировать папку `data`.
 
+Готовые примеры (для следующего релиза на GitHub и Import в Apiquick):
+
+- `examples/collections/Testing-Challenges.postman_collection.json` — задания [thetestingmap.org](http://testingchallenges.thetestingmap.org/)
+- `examples/collections/Apiquick-Self-Test.postman_collection.json` — проверка самого Apiquick на `127.0.0.1:8765`
+
+Import → выбрать файл. Рабочие коллекции из `Коллекции Postman\` в git **не** кладутся.
+
 #### 7. Режим разработки (не нужен для обычной работы)
 
 Нужны зависимости фронтенда (`frontend\node_modules`). Их нет в ZIP «для запуска». На машине с npm:
@@ -172,6 +179,13 @@ Health check: http://127.0.0.1:8765/health should return JSON with `"ok": true`.
 #### 6. Data
 
 Collections and history go to a local database under `data\` (created on first run). That file is **not** in git. Backup = copy the `data` folder.
+
+Starter collections (include in the next GitHub release; Import in Apiquick):
+
+- `examples/collections/Testing-Challenges.postman_collection.json` — [thetestingmap.org](http://testingchallenges.thetestingmap.org/) form challenges
+- `examples/collections/Apiquick-Self-Test.postman_collection.json` — self-test against `127.0.0.1:8765`
+
+Import → pick the file. Personal dumps under `Коллекции Postman\` stay off git.
 
 #### 7. Development (not needed for normal use)
 

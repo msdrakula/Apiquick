@@ -1,0 +1,3240 @@
+{
+  "info": {
+    "name": "Testing Challenges — thetestingmap.org",
+    "description": "Запросы по заданиям http://testingchallenges.thetestingmap.org/\n\nСайт — это веб-формы, не REST API. Каждый запрос — один кейс. Не гоняй коллекцию целиком: лимит ~30 req/s на IP.\n\nChallenge #1: 18 проверок First Name (в т.ч. обход maxlength и hidden admin).\n#2: обход HTML5 type=number.\n#4: валидные CNP (Румыния).\n#5: аналитика down.\n#6: невалидные границы даты такси 2017.\n#7: сценарий с обязательными словами.\n#8: аукцион / state transition.\n#9: страница кроссворда (JS).\n#10: создание пользователя и логин.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Challenge 1 — First Name (18 checks)",
+      "item": [
+        {
+          "name": "00 GET form",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/index.php"
+          }
+        },
+        {
+          "name": "01 empty",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": ""
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "02 spaces only",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "   "
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "03 valid name",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Anna"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "04 one character",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "A"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "05 max 30 chars",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "06 over max 31 chars (bypass HTML maxlength)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "07 digits only",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "12345"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "08 special characters",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "!@#$%^&*()"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "09 leading space",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": " Anna"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "10 trailing space",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Anna "
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "11 SQL quote",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "O'Brien"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "12 XSS tag",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "<script>alert(1)</script>"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "13 unicode / accents",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "José"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "14 hyphenated",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Mary-Jane"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "15 very long 200 chars",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "16 missing firstname field",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "17 privilege hidden user_right_as_admin=1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Anna"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "1"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "18 newline / tab in name",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/index.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Ann\na"
+                },
+                {
+                  "key": "firstexecution",
+                  "value": "1"
+                },
+                {
+                  "key": "found",
+                  "value": "0"
+                },
+                {
+                  "key": "golhart",
+                  "value": ""
+                },
+                {
+                  "key": "sartepace",
+                  "value": ""
+                },
+                {
+                  "key": "tgrgr",
+                  "value": ""
+                },
+                {
+                  "key": "GGTTre",
+                  "value": ""
+                },
+                {
+                  "key": "preaprea",
+                  "value": ""
+                },
+                {
+                  "key": "listsoftests",
+                  "value": ""
+                },
+                {
+                  "key": "mmmmret",
+                  "value": ""
+                },
+                {
+                  "key": "mfmmfdmret",
+                  "value": ""
+                },
+                {
+                  "key": "hrgefed",
+                  "value": ""
+                },
+                {
+                  "key": "apo",
+                  "value": ""
+                },
+                {
+                  "key": "scrt",
+                  "value": ""
+                },
+                {
+                  "key": "httersv",
+                  "value": ""
+                },
+                {
+                  "key": "httdsfrgersv",
+                  "value": ""
+                },
+                {
+                  "key": "user_right_as_admin",
+                  "value": "0"
+                },
+                {
+                  "key": "sopedace",
+                  "value": ""
+                },
+                {
+                  "key": "hds3ref",
+                  "value": ""
+                },
+                {
+                  "key": "sctte75rt",
+                  "value": ""
+                },
+                {
+                  "key": "xcfetrwdst",
+                  "value": ""
+                },
+                {
+                  "key": "xfhqmsntowt",
+                  "value": ""
+                },
+                {
+                  "key": "httr3gfdersv",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenge 2 — bypass HTML5 number",
+      "item": [
+        {
+          "name": "GET form",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge2.php"
+          }
+        },
+        {
+          "name": "valid integer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge2.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "valuesadded",
+                  "value": "42"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "decimal 1.5",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge2.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "valuesadded",
+                  "value": "1.5"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "text abc",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge2.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "valuesadded",
+                  "value": "abc"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "thousands separator 1,000",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge2.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "valuesadded",
+                  "value": "1,000"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "scientific 1e2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge2.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "valuesadded",
+                  "value": "1e2"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "empty",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge2.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "valuesadded",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenge 4 — valid CNP (5 + invalid)",
+      "item": [
+        {
+          "name": "GET form",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge4.php"
+          }
+        },
+        {
+          "name": "CNP male 1980",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge4.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "CNP",
+                  "value": "1800101010015"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Check Validity"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "CNP female 1990",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge4.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "CNP",
+                  "value": "2900615401231"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Check Validity"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "CNP male 2005",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge4.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "CNP",
+                  "value": "5051231529992"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Check Validity"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "CNP foreign resident",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge4.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "CNP",
+                  "value": "7850320100101"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Check Validity"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "CNP non-resident",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge4.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "CNP",
+                  "value": "9990707010077"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Check Validity"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "CNP invalid checksum",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge4.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "CNP",
+                  "value": "1234567890123"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Check Validity"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "CNP too short",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge4.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "CNP",
+                  "value": "123"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Check Validity"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenge 5 — analytics down",
+      "item": [
+        {
+          "name": "GET challenge page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge5.php"
+          }
+        },
+        {
+          "name": "analytics engine (may fail — that is the test)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://webanalyticsengine.thetestingmap.org/web_analytics_engine.php?country=Norway&email=me@whatyouknow.com&firstName=firstname&lastName=Gheorghe&formSubmit=Submit&ip=127.0.0.1&browser=Apiquick"
+          }
+        },
+        {
+          "name": "analytics with empty IP / browser",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://webanalyticsengine.thetestingmap.org/web_analytics_engine.php?country=Norway&email=me@whatyouknow.com&firstName=Test&lastName=User&ip=&browser="
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenge 6 — taxi datetime boundaries",
+      "item": [
+        {
+          "name": "GET form",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php"
+          }
+        },
+        {
+          "name": "year before 2017",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "31/12/2016 23:59"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "year after 2017",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "01/01/2018 00:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "less than 1 hour ahead",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "18/08/2017 12:20"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "29 Feb 2017 not leap",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "29/02/2017 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "31 April invalid day",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "31/04/2017 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "day 32",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "32/01/2017 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "day 00",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "00/01/2017 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "month 00",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "15/00/2017 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "month 13",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "15/13/2017 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "hour 24",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "18/08/2017 24:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "minute 60",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "18/08/2017 23:60"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "past date in 2017",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "01/01/2017 00:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "31 Feb",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "31/02/2017 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "US format MM/DD (unrecognized)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "08/18/2017 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "ISO format (unrecognized)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "2017-08-18 14:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "valid-looking +2h same day",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge6.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "date_time",
+                  "value": "18/08/2017 16:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenge 7 — scenario words",
+      "item": [
+        {
+          "name": "GET form",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge7.php"
+          }
+        },
+        {
+          "name": "missing required words",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge7.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "scenario",
+                  "value": "A tester opened a page and found a bug."
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "all required words",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge7.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "scenario",
+                  "value": "At a testing conference a user reported a login failure. The team used data driven testing to replay the same steps with many accounts and improved error handling so the user saw a clear message instead of a blank page."
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Submit"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenge 8 — auction states",
+      "item": [
+        {
+          "name": "GET board",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge8.php"
+          }
+        },
+        {
+          "name": "create saved (start in future)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge8.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "selling",
+                  "value": "Vintage watch"
+                },
+                {
+                  "key": "start_date",
+                  "value": "11:00"
+                },
+                {
+                  "key": "description",
+                  "value": "Working mechanical watch"
+                },
+                {
+                  "key": "end_date",
+                  "value": "03:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Send"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "create in progress (start already passed)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge8.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "selling",
+                  "value": "Running auction"
+                },
+                {
+                  "key": "start_date",
+                  "value": "09:00"
+                },
+                {
+                  "key": "description",
+                  "value": "Should be in progress at 10:15"
+                },
+                {
+                  "key": "end_date",
+                  "value": "11:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Send"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "create finished (end in past)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge8.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "selling",
+                  "value": "Old lot"
+                },
+                {
+                  "key": "start_date",
+                  "value": "08:00"
+                },
+                {
+                  "key": "description",
+                  "value": "Already ended"
+                },
+                {
+                  "key": "end_date",
+                  "value": "09:00"
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Send"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "empty required fields",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge8.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "selling",
+                  "value": ""
+                },
+                {
+                  "key": "start_date",
+                  "value": ""
+                },
+                {
+                  "key": "description",
+                  "value": ""
+                },
+                {
+                  "key": "end_date",
+                  "value": ""
+                },
+                {
+                  "key": "formSubmit",
+                  "value": "Send"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenge 9 — crossword page",
+      "item": [
+        {
+          "name": "GET crossword",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge9.php"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenge 10 — bug hunt login",
+      "item": [
+        {
+          "name": "GET challenge page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge10.php"
+          }
+        },
+        {
+          "name": "create user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge10.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "driver1"
+                },
+                {
+                  "key": "password",
+                  "value": "Passw0rd!"
+                },
+                {
+                  "key": "firstname",
+                  "value": "Alex"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Driver"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "create user empty password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "url": "http://testingchallenges.thetestingmap.org/challenge10.php",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "driver2"
+                },
+                {
+                  "key": "password",
+                  "value": ""
+                },
+                {
+                  "key": "firstname",
+                  "value": "Sam"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Lee"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET login app",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/login/login.php"
+          }
+        },
+        {
+          "name": "GET bugs tracker",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://bugs.brainforit.com/"
+          }
+        },
+        {
+          "name": "GET submit report page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://testingchallenges.thetestingmap.org/challenge10submitreport.php"
+          }
+        }
+      ]
+    }
+  ]
+}

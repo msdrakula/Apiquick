@@ -1,0 +1,445 @@
+{
+  "info": {
+    "name": "Apiquick — self-test",
+    "description": "Проверка Apiquick как в обычной работе: окружение «Apiquick Local» (Variables → Environments) с baseUrl, colId, reqId. Сверху выбери это окружение.\n\ncolId / reqId — id коллекции и запроса из ответа Create. После Create collection подставь id в переменную colId окружения (Edit), то же для reqId после Create request.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8765"
+    },
+    {
+      "key": "colId",
+      "value": "1"
+    },
+    {
+      "key": "reqId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Smoke",
+      "item": [
+        {
+          "name": "GET health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/health"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET collections",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/collections"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/requests"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET environments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/environments"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET globals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/globals"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET cookies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/cookies"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET history",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/history"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CRUD collections & requests",
+      "item": [
+        {
+          "name": "Create collection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/collections",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Apiquick CRUD Temp\",\n  \"description\": \"created by self-test collection\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"created\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Rename collection",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/collections/{{colId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Apiquick CRUD Temp renamed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Duplicate collection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/collections/{{colId}}/duplicate"
+          }
+        },
+        {
+          "name": "Export collection",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/collections/{{colId}}/export"
+          }
+        },
+        {
+          "name": "Create request in collection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/requests",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collection_id\": \"{{colId}}\",\n  \"name\": \"Ping health\",\n  \"method\": \"GET\",\n  \"url\": \"http://127.0.0.1:8765/health\",\n  \"headers\": [],\n  \"params\": [],\n  \"body_type\": \"none\",\n  \"body_content\": \"\",\n  \"body_raw_type\": \"json\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get request by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/requests/{{reqId}}"
+          }
+        },
+        {
+          "name": "Update request",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/requests/{{reqId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ping health updated\",\n  \"method\": \"GET\",\n  \"url\": \"http://127.0.0.1:8765/health\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "List requests in collection",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/requests/collection/{{colId}}"
+          }
+        },
+        {
+          "name": "Delete request",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/requests/{{reqId}}"
+          }
+        },
+        {
+          "name": "Delete collection",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/collections/{{colId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Execute",
+      "item": [
+        {
+          "name": "Execute GET health via executor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/execute",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"executor ping\",\n  \"method\": \"GET\",\n  \"url\": \"http://127.0.0.1:8765/health\",\n  \"headers\": [],\n  \"params\": [],\n  \"body_type\": \"none\",\n  \"body_content\": \"\",\n  \"auth_type\": \"none\",\n  \"auth\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"executor 200\", function () {",
+                  "  pm.expect(pm.response.code).to.equal(200);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Execute missing URL (error in body, not popup)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/execute",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"GET\",\n  \"url\": \"http://127.0.0.1:1/\",\n  \"headers\": [],\n  \"params\": [],\n  \"body_type\": \"none\",\n  \"auth_type\": \"none\",\n  \"auth\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Environments & globals",
+      "item": [
+        {
+          "name": "Create environment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/environments",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Apiquick Local\",\n  \"variables\": [\n    {\n      \"key\": \"baseUrl\",\n      \"value\": \"http://127.0.0.1:8765\",\n      \"enabled\": true\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Create global",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/globals",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"selftest_marker\",\n  \"value\": \"ok\",\n  \"secret\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
